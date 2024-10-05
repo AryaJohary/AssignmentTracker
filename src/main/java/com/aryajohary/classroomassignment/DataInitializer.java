@@ -72,15 +72,15 @@ public class DataInitializer {
 
         // Sample Submissions using Submission
         Submission submission1DTO = new Submission();
-        submission1DTO.setAssignmentId(assignment1.getId());
-        submission1DTO.setStudentId(student1.getId());
+        submission1DTO.setAssignment(assignment1);
+        submission1DTO.setStudent(student1);
         submission1DTO.setSubmissionText("Here is my solution.");
         submission1DTO.setSubmissionDate(LocalDate.now().toString());
         submission1DTO.setAttachmentUrl("http://example.com/submission1");
 
         Submission submission2DTO = new Submission();
-        submission2DTO.setAssignmentId(assignment2.getId());
-        submission2DTO.setStudentId(student2.getId());
+        submission2DTO.setAssignment(assignment2);
+        submission2DTO.setStudent(student2);
         submission2DTO.setSubmissionText("Here is my explanation.");
         submission2DTO.setSubmissionDate(LocalDate.now().toString());
         submission2DTO.setAttachmentUrl("http://example.com/submission2");
@@ -119,8 +119,8 @@ public class DataInitializer {
 
     private Submission createSubmission(Submission submissionDTO) {
         Submission submission = new Submission();
-        submission.setAssignmentId(submissionDTO.getAssignmentId());
-        submission.setStudentId(submissionDTO.getStudentId());
+        submission.setAssignment(submissionDTO.getAssignment());
+        submission.setStudent(submissionDTO.getStudent());
         submission.setSubmissionText(submissionDTO.getSubmissionText());
         submission.setSubmissionDate(submissionDTO.getSubmissionDate());
         submission.setAttachmentUrl(submissionDTO.getAttachmentUrl());

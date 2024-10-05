@@ -18,10 +18,12 @@ public class Submission {
     private int id;
 
     @NotNull
-    private int assignmentId;
+    @ManyToOne
+    private Assignment assignment;
 
     @NotNull
-    private int studentId;
+    @ManyToOne
+    private Student student;
 
     @NotNull
     private String submissionText;

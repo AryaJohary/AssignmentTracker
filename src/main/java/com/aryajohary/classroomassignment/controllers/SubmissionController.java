@@ -29,8 +29,8 @@ public class SubmissionController {
     private SubmissionRepo submissionRepo;
 
     @GetMapping("/syntax")
-    public Submission getSyntax(){
-        return new Submission();
+    public SubmissionDTO getSyntax(){
+        return new SubmissionDTO();
     }
 
     @PostMapping
@@ -42,8 +42,8 @@ public class SubmissionController {
                 .orElseThrow(() -> new CustomEntityNotFoundException("Assignment Id not found"));
 
         Submission submission = new Submission();
-        submission.setAssignmentId(submissionDTO.getAssignmentId());
-        submission.setStudentId(submissionDTO.getStudentId());
+        submission.setAssignment(assignment);
+        submission.setStudent(student);
         submission.setAttachmentUrl(submission.getAttachmentUrl());
         submission.setSubmissionDate(submissionDTO.getSubmissionDate());
         submission.setSubmissionText(submissionDTO.getSubmissionText());

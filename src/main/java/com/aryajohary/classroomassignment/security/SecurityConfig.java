@@ -33,11 +33,11 @@ public class SecurityConfig {
 
                                 .anyRequest().authenticated()
                 )
-                .formLogin(form ->
-                        form.loginPage("/showLogin")
-                                .loginProcessingUrl("authenticateTheUser")
-                                .successForwardUrl("/")
-                                .permitAll())
+//                .formLogin(form ->
+//                        form.loginPage("/showLogin")
+//                                .loginProcessingUrl("authenticateTheUser")
+//                                .successForwardUrl("/")
+//                                .permitAll())
         ;
 
         http.httpBasic(Customizer.withDefaults());

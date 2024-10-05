@@ -11,8 +11,8 @@ public class LoginController {
         return "login-page";
     }
 
-    @GetMapping
-    public String home(){
+    @GetMapping("/")
+    public String showHome(){
         return "home";
     }
 

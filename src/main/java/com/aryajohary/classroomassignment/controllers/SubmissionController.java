@@ -1,9 +1,12 @@
 package com.aryajohary.classroomassignment.controllers;
 
+import com.aryajohary.classroomassignment.dto.AssignmentDTO;
+import com.aryajohary.classroomassignment.dto.SubmissionDTO;
 import com.aryajohary.classroomassignment.exceptions.CustomEntityNotFoundException;
 import com.aryajohary.classroomassignment.repos.AssignmentRepo;
 import com.aryajohary.classroomassignment.repos.StudentRepo;
 import com.aryajohary.classroomassignment.repos.SubmissionRepo;
+import com.aryajohary.classroomassignment.schemas.Assignment;
 import com.aryajohary.classroomassignment.schemas.Student;
 import com.aryajohary.classroomassignment.schemas.Submission;
 import com.aryajohary.classroomassignment.schemas.Teacher;
@@ -31,12 +34,19 @@ public class SubmissionController {
     }
 
     @PostMapping
-    public Submission createSubmission(@RequestBody Submission submission) {
-        assignmentRepo.findById(submission.getAssignmentId())
-                .orElseThrow(() -> new CustomEntityNotFoundException("Assignment Id not found"));
-        studentRepo.findById(submission.getStudentId())
-                .orElseThrow(() -> new CustomEntityNotFoundException("Student Id not found"));
+    public Submission createSubmission(@RequestBody SubmissionDTO submissionDTO) {
+        Student student = studentRepo.findById(submissionDTO.getStudentId())
+                .orElseThrow(() -> new CustomEntityNotFoundException("Student not found"));
 
+        Assignment assignment = assignmentRepo.findById(submissionDTO.getAssignmentId())
+                .orElseThrow(() -> new CustomEntityNotFoundException("Assignment Id not found"));
+
+        Submission submission = new Submission();
+        submission.setAssignmentId(submissionDTO.getAssignmentId());
+        submission.setStudentId(submissionDTO.getStudentId());
+        submission.setAttachmentUrl(submission.getAttachmentUrl());
+        submission.setSubmissionDate(submissionDTO.getSubmissionDate());
+        submission.setSubmissionText(submissionDTO.getSubmissionText());
         return submissionRepo.save(submission);
     }
 

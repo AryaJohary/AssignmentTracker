@@ -26,8 +26,8 @@ public class TeacherController {
     private SubmissionRepo submissionRepo;
 
     @GetMapping("/syntax")
-    public Teacher getSyntax(){
-        return new Teacher();
+    public TeacherDTO getSyntax(){
+        return new TeacherDTO();
     }
 
     @GetMapping
@@ -65,6 +65,5 @@ public class TeacherController {
         }
         return teacher;
     }
-
 
 }

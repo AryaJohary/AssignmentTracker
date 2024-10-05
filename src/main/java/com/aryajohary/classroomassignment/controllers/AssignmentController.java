@@ -1,5 +1,6 @@
 package com.aryajohary.classroomassignment.controllers;
 
+import com.aryajohary.classroomassignment.dto.AssignmentDTO;
 import com.aryajohary.classroomassignment.exceptions.CustomEntityNotFoundException;
 import com.aryajohary.classroomassignment.repos.AssignmentRepo;
 import com.aryajohary.classroomassignment.repos.TeacherRepo;
@@ -21,18 +22,22 @@ public class AssignmentController {
     private AssignmentRepo assignmentRepo;
 
     @GetMapping("/syntax")
-    public Assignment getSyntax(){
-        return new Assignment();
+    public AssignmentDTO getSyntax(){
+        return new AssignmentDTO();
     }
 
     @PostMapping
-    public Assignment createAssignment(@RequestBody Assignment assignment) {
-        Teacher teacher = teacherRepo.findById(assignment.getCreatedBy().getId())
+    public Assignment createAssignment(@RequestBody AssignmentDTO assignmentDTO) {
+        Teacher teacher = teacherRepo.findById(assignmentDTO.getCreatedBy())
                 .orElseThrow(() ->
                         new CustomEntityNotFoundException("Teacher not found with this Id"));
 
+        Assignment assignment = new Assignment();
         assignment.setCreatedBy(teacher);
-
+        assignment.setClassName(assignmentDTO.getClassName());
+        assignment.setDescription(assignmentDTO.getDescription());
+        assignment.setDueDate(assignmentDTO.getDueDate());
+        assignment.setTitle(assignmentDTO.getTitle());
         return assignmentRepo.save(assignment);
     }
 

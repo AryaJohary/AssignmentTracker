@@ -23,8 +23,8 @@ public class StudentController {
     private SubmissionRepo submissionRepo;
 
     @GetMapping("/syntax")
-    public Student getSyntax(){
-        return new Student();
+    public StudentDTO getSyntax(){
+        return new StudentDTO();
     }
 
     @GetMapping

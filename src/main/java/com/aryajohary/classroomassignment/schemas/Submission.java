@@ -30,6 +30,6 @@ public class Submission {
     private String attachmentUrl;
 
     @NotNull
-    private LocalDate submissionDate;
+    private String submissionDate;
 
 }

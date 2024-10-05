@@ -58,13 +58,13 @@ public class DataInitializer {
         Assignment assignment1DTO = new Assignment();
         assignment1DTO.setTitle("Math Assignment 1");
         assignment1DTO.setDescription("Solve the given algebra problems.");
-        assignment1DTO.setDueDate(LocalDate.now().plusDays(7));
+        assignment1DTO.setDueDate(LocalDate.now().plusDays(7).toString());
         assignment1DTO.setClassName("Math 101");
 
         Assignment assignment2DTO = new Assignment();
         assignment2DTO.setTitle("Physics Assignment 1");
         assignment2DTO.setDescription("Explain the laws of motion.");
-        assignment2DTO.setDueDate(LocalDate.now().plusDays(5));
+        assignment2DTO.setDueDate(LocalDate.now().plusDays(5).toString());
         assignment2DTO.setClassName("Physics 201");
 
         Assignment assignment1 = createAssignment(assignment1DTO, teacher1);
@@ -75,14 +75,14 @@ public class DataInitializer {
         submission1DTO.setAssignmentId(assignment1.getId());
         submission1DTO.setStudentId(student1.getId());
         submission1DTO.setSubmissionText("Here is my solution.");
-        submission1DTO.setSubmissionDate(LocalDate.now());
+        submission1DTO.setSubmissionDate(LocalDate.now().toString());
         submission1DTO.setAttachmentUrl("http://example.com/submission1");
 
         Submission submission2DTO = new Submission();
         submission2DTO.setAssignmentId(assignment2.getId());
         submission2DTO.setStudentId(student2.getId());
         submission2DTO.setSubmissionText("Here is my explanation.");
-        submission2DTO.setSubmissionDate(LocalDate.now());
+        submission2DTO.setSubmissionDate(LocalDate.now().toString());
         submission2DTO.setAttachmentUrl("http://example.com/submission2");
 
         createSubmission(submission1DTO);

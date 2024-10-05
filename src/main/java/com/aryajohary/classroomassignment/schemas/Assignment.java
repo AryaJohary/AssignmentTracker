@@ -23,7 +23,7 @@ public class Assignment {
     private String description;
 
     @NotNull
-    private LocalDate dueDate;
+    private String dueDate;
 
     @NotNull
     private String className;

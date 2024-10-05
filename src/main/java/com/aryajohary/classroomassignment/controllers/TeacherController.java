@@ -6,13 +6,14 @@ import com.aryajohary.classroomassignment.repos.AssignmentRepo;
 import com.aryajohary.classroomassignment.repos.SubmissionRepo;
 import com.aryajohary.classroomassignment.repos.TeacherRepo;
 import com.aryajohary.classroomassignment.schemas.*;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/teachers")
 public class TeacherController {
 
@@ -64,6 +65,12 @@ public class TeacherController {
             throw new CustomEntityNotFoundException("Teacher not found");
         }
         return teacher;
+    }
+
+    @GetMapping("/showAll")
+    public String findAllTeachers(Model theModel){
+        theModel.addAttribute("users", teacherRepo.findAll());
+        return "usersList";
     }
 
 }

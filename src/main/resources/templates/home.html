@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="../styles.css"> <!-- Optional CSS file for styling -->
 </head>
 <body>
 <header>
@@ -12,9 +11,9 @@
 </header>
 <nav>
     <ul>
-        <li><a th:href="@{/users}">Users</a></li>
-        <li><a th:href="@{/students}">Students</a></li>
-        <li><a th:href="@{/teachers}">Teachers</a></li>
+        <li><a th:href="@{/users/showAll}">Users</a></li>
+        <li><a th:href="@{/students/showAll}">Students</a></li>
+        <li><a th:href="@{/teachers/showAll}">Teachers</a></li>
     </ul>
 </nav>
 <main>
@@ -24,4 +23,59 @@
     <p>&copy; 2024 Management System</p>
 </footer>
 </body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav {
+        background-color: #333;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: white;
+        padding: 15px 20px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    footer {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+</style>
 </html>

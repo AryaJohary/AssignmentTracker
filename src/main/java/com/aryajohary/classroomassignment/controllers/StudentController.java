@@ -8,12 +8,14 @@ import com.aryajohary.classroomassignment.schemas.Role;
 import com.aryajohary.classroomassignment.schemas.Student;
 import com.aryajohary.classroomassignment.schemas.Submission;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/students")
 public class StudentController {
 
@@ -25,6 +27,12 @@ public class StudentController {
     @GetMapping("/syntax")
     public StudentDTO getSyntax(){
         return new StudentDTO();
+    }
+
+    @GetMapping("/showAll")
+    public String findAllStudents(Model theModel){
+        theModel.addAttribute("users", studentRepo.findAll());
+        return "usersList";
     }
 
     @GetMapping

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../styles.css"> <!-- Optional CSS file for styling -->
+</head>
+<body>
+<header>
+    <h1>Welcome to the Management System</h1>
+</header>
+<nav>
+    <ul>
+        <li><a th:href="@{/users}">Users</a></li>
+        <li><a th:href="@{/students}">Students</a></li>
+        <li><a th:href="@{/teachers}">Teachers</a></li>
+    </ul>
+</nav>
+<main>
+    <p>Navigate through the links above to manage users, students, and teachers.</p>
+</main>
+<footer>
+    <p>&copy; 2024 Management System</p>
+</footer>
+</body>
+</html>

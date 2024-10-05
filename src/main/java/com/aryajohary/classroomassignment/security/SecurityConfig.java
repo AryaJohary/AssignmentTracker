@@ -32,7 +32,13 @@ public class SecurityConfig {
                                 .hasAuthority(String.valueOf(Role.Teacher))
 
                                 .anyRequest().authenticated()
-                );
+                )
+                .formLogin(form ->
+                        form.loginPage("/showLogin")
+                                .loginProcessingUrl("authenticateTheUser")
+                                .successForwardUrl("/")
+                                .permitAll())
+        ;
 
         http.httpBasic(Customizer.withDefaults());
         http.csrf(csrf->csrf.disable());

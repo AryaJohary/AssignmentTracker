@@ -1,6 +1,6 @@
 package com.aryajohary.classroomassignment.controllers;
 
-import com.aryajohary.classroomassignment.dto.AssignmentDTO;
+
 import com.aryajohary.classroomassignment.dto.SubmissionDTO;
 import com.aryajohary.classroomassignment.exceptions.CustomEntityNotFoundException;
 import com.aryajohary.classroomassignment.repos.AssignmentRepo;
@@ -9,14 +9,13 @@ import com.aryajohary.classroomassignment.repos.SubmissionRepo;
 import com.aryajohary.classroomassignment.schemas.Assignment;
 import com.aryajohary.classroomassignment.schemas.Student;
 import com.aryajohary.classroomassignment.schemas.Submission;
-import com.aryajohary.classroomassignment.schemas.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/submisssions")
+@RequestMapping("/submissions")
 public class SubmissionController {
 
     @Autowired
@@ -44,9 +43,9 @@ public class SubmissionController {
         Submission submission = new Submission();
         submission.setAssignment(assignment);
         submission.setStudent(student);
-        submission.setAttachmentUrl(submission.getAttachmentUrl());
         submission.setSubmissionDate(submissionDTO.getSubmissionDate());
         submission.setSubmissionText(submissionDTO.getSubmissionText());
+        submission.setAttachmentUrl(submissionDTO.getAttachmentUrl());
         return submissionRepo.save(submission);
     }
 

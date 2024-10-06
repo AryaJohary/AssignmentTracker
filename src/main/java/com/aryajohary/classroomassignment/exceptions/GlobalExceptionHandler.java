@@ -81,9 +81,9 @@ public class GlobalExceptionHandler extends RuntimeException{
     public ResponseEntity<GlobalErrorResponse> handleEntityNotFoundException(CustomEntityNotFoundException exc){
         GlobalErrorResponse errorResponse = new GlobalErrorResponse();
         errorResponse.setMessage(exc.getMessage());
-        errorResponse.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+        errorResponse.setStatus(HttpStatus.BAD_REQUEST);
         errorResponse.setTimeStamp(LocalDateTime.now());
-        return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
     }
 
 }

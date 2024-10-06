@@ -26,6 +26,7 @@
 			<th>Username</th>
 			<th>Password</th>
 			<th>Role</th>
+			<th>Action</th>
 		</tr>
 		</thead>
 
@@ -35,6 +36,10 @@
 			<td th:text="${tempUser.username}"></td>
 			<td th:text="${tempUser.password}"></td>
 			<td th:text="${tempUser.role}"></td>
+			<td>
+				<a th:href="@{${tempUser.role == 'STUDENT'} ? '/students/' + ${tempUser.id} + '/listSubmissions' : '/teachers/' + ${tempUser.id} + '/listAssignmentsForTeacher'}"					View Assignment
+				</a>
+			</td>
 		</tr>
 		</tbody>
 	</table>

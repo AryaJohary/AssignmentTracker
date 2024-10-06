@@ -46,12 +46,25 @@ public class AssignmentController {
         return assignmentRepo.findAll();
     }
 
+//    @GetMapping("/{id}")
+//    public Assignment getAssignment(@PathVariable int id){
+//
+//        try{
+//            Assignment as = getAssignment2(id);
+//        }catch (CustomEntityNotFoundException exc){
+//            System.out.println("Assignment not found");
+//        }
+//
+//        return null;
+//    }
+
     @GetMapping("/{id}")
     public Assignment getAssignment(@PathVariable int id){
         Assignment assignment = assignmentRepo.findById(id).orElse(null);
         if(assignment==null){
             throw new CustomEntityNotFoundException("Assignment not found");
         }
+
         return assignment;
     }
 

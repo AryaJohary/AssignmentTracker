@@ -57,7 +57,6 @@ public class TeacherController {
         return submissionRepo.listSubmissionsForTeacher(id);
     }
 
-
     @GetMapping("/{id}")
     public Teacher getTeacher(@PathVariable int id){
         Teacher teacher = teacherRepo.findById(id).orElse(null);

@@ -65,4 +65,10 @@ public class StudentController {
         return submissionRepo.listAssignmentsDoneByStudent(id);
     }
 
+//    @GetMapping("/{id}/listSubmissions")
+//    public String listSubmission(@PathVariable int id, Model theModel){
+//        theModel.addAttribute("tasks", submissionRepo.listAssignmentsDoneByStudent(id));
+//        return "tasks";
+//    }
+
 }

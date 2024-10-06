@@ -14,5 +14,4 @@ public class AssignmentDTO {
     private String dueDate;
     private String className;
     private int createdBy;
-
 }
